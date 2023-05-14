@@ -105,7 +105,6 @@ namespace ariel
         }
         setLeader(); // if the team leader is dead set the closest team member to the leader as the new leader
         Character* victim = getVictim(opponent_team); // get the victim of the opponent team
-        // cout << "victim" + victim->print() << endl;
         attackVictim(victim,opponent_team); // all team members attack the victim
     }
     // if the team leader is dead set the closest team member to the leader as the new leader
@@ -132,8 +131,6 @@ namespace ariel
                     }
                 }
             }
-            // set the closest team member to team leader
-            // cout << "new leader" + closest_member->print() << endl;
             this->leader_ = closest_member;
         }
     }
@@ -165,7 +162,6 @@ namespace ariel
     // in this class first the cowboys of the attacking team attack and then the ninja of the team
     void Team::attackVictim(Character *victim, Team* opponent_team)
     {
-        cout << " im here " << endl;
         // case 1: iterate over the attacking team cowboy members
         for(auto ptr : this->team_members_)
         {
