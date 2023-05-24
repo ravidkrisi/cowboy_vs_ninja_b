@@ -1,6 +1,7 @@
 #!make -f
 
 CXX=clang++-14
+#CXX=g++
 CXXVERSION=c++2a
 TIDY=clang-tidy-14
 SOURCE_PATH=sources

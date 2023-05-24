@@ -13,10 +13,15 @@ namespace ariel
     private:
         // **** declare attributes ****
         int speed_;
+        bool is_slashed_=false;
     public:
         // **** declare constructors ****
         Ninja(); // default constructor
         Ninja(string name, int hp_level, int speed, const Point& coordinate); // parametrized constructor
+
+        // **** declare getters and setters ****
+        void setIsSlashed(bool is_slash); // this function set true or false if the ninja has slashed already in current round
+        bool isSlashed() const; // return if ninja has slashed in current round
 
         // **** declare functions ****
         void move(Character* opponent); // the ninja moves toward the opponent accordingly to their speed

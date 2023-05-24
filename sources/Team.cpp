@@ -1,6 +1,4 @@
 #include "Team.hpp"
-#include <limits.h>
-#include <float.h>
 #include <stdexcept>
 #include <iostream>
 using namespace std;
@@ -31,7 +29,11 @@ namespace ariel
     }
 
     // **** define getters ****
+    // this function return the team leader
     Character* Team::getLeader() const{return this->leader_;}
+    // this function return the team members vector
+    vector <Character *> Team::getTeamMembers() const{return this->team_members_}
+
 
     // **** define functions ****
 

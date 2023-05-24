@@ -6,6 +6,12 @@ namespace ariel
     Ninja::Ninja(): Character(), speed_(0) {} // default constructor
     Ninja::Ninja(string name, int hp_level, int speed, const Point& coordinate): Character(name, coordinate, hp_level), speed_(speed) {} // parameterized constructor
 
+    // **** define getters and setters ****
+    // this function set true or false if the ninja has slashed already
+    void Ninja::setIsSlashed(bool is_slash) {this->is_slashed_ = is_slash;}
+    // return if ninja has slashed in current round
+    bool Ninja::isSlashed() const {return this->is_slashed_;}
+
 
     // **** define functions ****
     // this function return the ninja speed
