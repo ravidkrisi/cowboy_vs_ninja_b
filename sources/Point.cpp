@@ -1,24 +1,18 @@
 #include "Point.hpp"
 
-
-
-
 namespace ariel
 {
     // **** define constructors ****
-
     Point::Point(): x_axis_(0), y_axis_(0) {} // default constructor
     Point::Point(double x_axis, double y_axis): x_axis_(x_axis), y_axis_(y_axis){} // parameterized constructor
 
     // **** define getters ****
-
     // this return the value of the x axis
     double Point::getX() const {return this->x_axis_;}
     // this return the value of the y axis
     double Point::getY() const {return this->y_axis_;}
 
     // **** define functions ****
-
     // this function get another point and calculate the distance between them
     double Point::distance(const Point &other) const
     {

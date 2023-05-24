@@ -6,7 +6,7 @@ namespace ariel
     class Team2: public Team
     {
     public:
-        // **** declare constructors and destructor ****
+        // **** declare constructors ****
         Team2(); // default constructor 
         Team2(Character *); // parameterized constructor 
 

@@ -6,7 +6,6 @@
  // **** define constructors deconstruct ****
     Team2::Team2(): Team() {} // defualt constructor 
     Team2::Team2(Character * leader): Team(leader) {} // parameterized constructor 
-    // Team2::~Team2(): {Team::~Team}
 
     // **** define functions ****
     void Team2::attackVictim(ariel::Character *victim, ariel::Team *opponent_team)

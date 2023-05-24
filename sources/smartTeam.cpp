@@ -2,9 +2,13 @@
 
 namespace ariel
 {
+     // **** define constructors deconstruct ****
+    smartTeam::smartTeam(): Team() {} // defualt constructor 
+    smartTeam::smartTeam(Character * leader): Team(leader) {} // parameterized constructor 
+
     // **** define getters ****
     // this function return a vector of alive cowboys in the team
-    vector <Cowboy*> smartTeam::getActiveCowboyMembers()
+    vector <Cowboy*> smartTeam::getActiveCowboyMembers() const
     {
         vector <Cowboy*> cowboy_members;
         for (auto ptr : this->team_members_)
@@ -20,7 +24,7 @@ namespace ariel
         return cowboy_members;
     }
     // this function return a vector of ninja in the team
-    vector <Ninja*> smartTeam::getActiveNinjaMembers()
+    vector <Ninja*> smartTeam::getActiveNinjaMembers() const 
     {
         vector <Ninja*> ninja_members;
         for (auto ptr : this->team_members_)
@@ -40,7 +44,7 @@ namespace ariel
     }
 
     // this function return the closet opponent team member to the character in the argument
-    Character* smartTeam::getClosetOpponentMember(Character* character, Team* opponent_team)
+    Character* smartTeam::getClosetOpponentMember(Character* character, Team* opponent_team) const
     {
         vector <Character *> opponent_members = opponent_team->getTeamMembers(); // get opponent team members
 
@@ -66,7 +70,7 @@ namespace ariel
     }
 
     // this function return the opponent team member with the lowest hp level
-    Character* smartTeam::getLowestHpLevelOpponentTeamMember(Team* opponent_team)
+    Character* smartTeam::getLowestHpLevelOpponentTeamMember(Team* opponent_team) const
     {
         Character* lowest_hp_level_member = nullptr;
         int lowest_hp_level = INT_MAX;
@@ -103,7 +107,7 @@ namespace ariel
             {
                 Character * victim = getClosetOpponentMember(ninja, opponent_team); // get the closet oppoent member to the ninja
                 // if nullptr returned means all opponent team members are dead and exit function
-                if (victim = nullptr){return;}
+                if (victim == nullptr){return;}
 
                 // check if ninja is less than 1 meter far from victim then slash it else move towards
                 // slash the victim
@@ -123,19 +127,23 @@ namespace ariel
             // iterate over all active cowboy team members
             for (auto cowboy : cowboy_members)
             {
-                victim = this->getLowestHpLevelOpponentTeamMember(opponent_team);// get the lowest hp level opponent team member
-                // if nullptr returned means all opponent team members are dead
-                if (victim = nullptr) {return;}
+                // check if cowboy is alive then
+                if (cowboy->isAlive())
+                {
+                    victim = this->getLowestHpLevelOpponentTeamMember(opponent_team);// get the lowest hp level opponent team member
+                    // if nullptr returned means all opponent team members are dead
+                    if (victim == nullptr) {return;}
 
-                // if cowboy has bullets shoot the victim
-                if (cowboy->hasboolets())
-                {
-                    cowboy->shoot(victim);
-                }
-                // else reload armor
-                else
-                {
-                    cowboy->reload();
+                    // if cowboy has bullets shoot the victim
+                    if (cowboy->hasboolets())
+                    {
+                        cowboy->shoot(victim);
+                    }
+                    // else reload armor
+                    else
+                    {
+                        cowboy->reload();
+                    }
                 }
             }
         }
@@ -148,7 +156,7 @@ namespace ariel
             {
                 victim = this->getClosetOpponentMember(ninja, opponent_team); // get closet victim to ninja
                 // check if victim is not nullptr else exit
-                if (victim = nullptr){ return;}
+                if (victim == nullptr){ return;}
 
                 // check if ninja already slashed in the round
                 if (!ninja->isSlashed())

@@ -1,5 +1,4 @@
 #include "Ninja.hpp"
-#include <stdexcept>
 namespace ariel
 {
     // **** define constructors ****

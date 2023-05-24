@@ -1,6 +1,3 @@
-// #ifndef TEAM_HPP
-// #define TEAM_HPP
-
 #pragma once 
 
 #include "Ninja.hpp"
@@ -11,6 +8,7 @@
 #include <stdexcept>
 #include <limits.h>
 #include <float.h>
+#include <iostream>
 
 
 
@@ -48,4 +46,3 @@ namespace ariel
     };
 }
 
-// #endif

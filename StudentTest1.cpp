@@ -9,6 +9,7 @@
 #include "sources/Team2.hpp"
 #include <random>
 #include <chrono>
+#include "smartTeam.hpp"
 
 using namespace ariel;
 
@@ -643,5 +644,76 @@ TEST_SUITE("Battle simulations") {
 
             CHECK(((team.stillAlive() && !team2.stillAlive()) || (!team.stillAlive() && team2.stillAlive())));
         }
+    }
+}
+
+TEST_SUITE("test smart test")
+{
+    TEST_CASE("check intialization is ok")
+    {
+        smartTeam team_1{random_char()}; 
+        Team team_2{random_char()}; 
+
+        for (int i = 0; i < MAX_TEAM - 1; i++) 
+        {
+            team_1.add(random_char());
+            team_2.add(random_char());
+        } 
+
+        simulate_battle(team_1, team_2);
+        cout << "----- smart team -----" << endl;
+        team_1.print();
+        cout << "----- team -----" << endl;
+        team_2.print();
+    }
+
+    TEST_CASE("smart team vs team")
+    {
+        // Cowboy smart_cowboy1("smart_cowboy1", Point(1, 10));
+        // Cowboy smart_cowboy2("smart_cowboy2", Point(22, 41));
+        // Cowboy smart_cowboy3("smart_cowboy3", Point(12, 15));
+        // Cowboy smart_cowboy4("smart_cowboy4", Point(50, 15));
+        // Cowboy smart_cowboy5("smart_cowboy4", Point());
+        // YoungNinja smart_young_ninja1("smart_young_ninja1", Point(10, 64));
+        // YoungNinja smart_young_ninja2("smart_young_ninja2", Point(100, 2));
+        // TrainedNinja smart_Trained_ninja1("smart_trained_ninja1", Point(15, 2));
+        // TrainedNinja smart_Trained_ninja2("smart_trained_ninja2", Point(55, 17));
+        // OldNinja smart_old_ninja1("smart_old_ninja1", Point(66, 17));
+
+        // Cowboy cowboy1("cowboy1", Point(1, 10));
+        // Cowboy cowboy2("cowboy2", Point(22, 41));
+        // Cowboy cowboy3("cowboy3", Point(12, 15));
+        // Cowboy cowboy4("cowboy4", Point(50, 15));
+        // Cowboy cowboy5("cowboy4", Point());
+        // YoungNinja young_ninja1("young_ninja1", Point(10, 64));
+        // YoungNinja young_ninja2("young_ninja2", Point(100, 2));
+        // TrainedNinja Trained_ninja1("Trained_ninja1", Point(15, 2));
+        // TrainedNinja Trained_ninja2("Trained_ninja2", Point(55, 17));
+        // OldNinja old_ninja1("old_ninja1", Point(66, 17));
+
+        // Cowboy enemy_cowboy1("enemy_cowboy1", Point(44, 2));
+        // Cowboy enemy_cowboy2("enemy_cowboy2", Point(17, 5));
+        // Cowboy enemy_cowboy3("enemy_cowboy3", Point(1, 1));
+        // Cowboy enemy_cowboy4("enemy_cowboy4", Point(11, 8));
+        // Cowboy enemy_cowboy5("enemy_cowboy5", Point());
+        // YoungNinja enemy_youngninja1("enemy_youngninja1", Point(64, 64));
+        // YoungNinja enemy_youngninja2("enemy_youngninja2", Point(75, 11));
+        // TrainedNinja enemy_trainedninja1("enemy_trainedninja1", Point(32, 15));
+        // TrainedNinja enemy_trainedninja2("enemy_trainedninja2", Point(55, 17));
+        // OldNinja smart_old_ninja1("smart_old_ninja1", Point(66, 17));
+
+        // Cowboy cowboy1("cowboy1", Point(1, 10));
+        // Cowboy cowboy2("cowboy2", Point(22, 41));
+        // Cowboy cowboy3("cowboy3", Point(12, 15));
+        // Cowboy cowboy4("cowboy4", Point(50, 15));
+        // Cowboy cowboy5("cowboy4", Point());
+        // YoungNinja young_ninja1("young_ninja1", Point(10, 64));
+        // YoungNinja young_ninja2("young_ninja2", Point(100, 2));
+        // TrainedNinja Trained_ninja1("Trained_ninja1", Point(15, 2));
+        // TrainedNinja Trained_ninja2("Trained_ninja2", Point(55, 17));
+        // OldNinja old_ninja1("old_ninja1", Point(66, 17));
+
+        // smartTeam smart_team(&smart_cowboy1);
+        // Team team(&smart_cowboy1);
     }
 }

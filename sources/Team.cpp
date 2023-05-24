@@ -1,7 +1,4 @@
 #include "Team.hpp"
-#include <stdexcept>
-#include <iostream>
-using namespace std;
 namespace ariel
 {
     // **** define constructors deconstruct ****
@@ -32,7 +29,7 @@ namespace ariel
     // this function return the team leader
     Character* Team::getLeader() const{return this->leader_;}
     // this function return the team members vector
-    vector <Character *> Team::getTeamMembers() const{return this->team_members_}
+    vector <Character *> Team::getTeamMembers() const{return this->team_members_;}
 
 
     // **** define functions ****

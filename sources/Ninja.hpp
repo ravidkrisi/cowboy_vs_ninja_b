@@ -1,9 +1,9 @@
-// #ifndef NINJA_HPP
-// #define NINJA_HPP
 #pragma once 
 
 #include <string>
 #include "Character.hpp"
+#include <stdexcept>
+
 using namespace std;
 
 namespace ariel
@@ -30,5 +30,3 @@ namespace ariel
         int getSpeed() const; // this function return the ninja speed
     };
 }
-
-// #endif

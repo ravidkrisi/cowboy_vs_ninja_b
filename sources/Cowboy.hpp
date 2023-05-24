@@ -1,8 +1,8 @@
-#ifndef COWBOY_HPP
-#define COWBOY_HPP
+#pragma once 
 
 #include <string>
 #include "Character.hpp"
+#include <stdexcept>
 
 using namespace std;
 
@@ -28,5 +28,4 @@ namespace ariel
     };
 }
 
-#endif
 

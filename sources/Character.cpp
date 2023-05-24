@@ -1,15 +1,12 @@
 #include "Character.hpp"
-#include <iostream>
-using namespace std;
 namespace ariel
 {
     // **** define constructors ****
 
     Character::Character(): name_("anon"), coordinate_(Point()), hp_level_(0) {} // default constructor
     Character::Character(string name, const Point& coordinate, int hp_level): name_(name), coordinate_(Point(coordinate.getX(), coordinate.getY())), hp_level_(hp_level)  {} // parameterized constructor
-    // Character::~Character() {delete this->coordinate_;}
+    
     // **** define getters and setters ****
-
     // this function return the character name
     string Character::getName() const {return this->name_;};
     // this function return the character location
@@ -23,7 +20,6 @@ namespace ariel
 
 
     // **** define functions ****
-
     // this function subtract the the number of hits from character hp level
     void Character::hit(int hit_points)
     {

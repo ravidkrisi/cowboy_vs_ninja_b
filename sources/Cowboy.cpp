@@ -1,5 +1,4 @@
 #include "Cowboy.hpp"
-#include <stdexcept>
 namespace ariel
 {
     // **** define attributes ****
@@ -36,7 +35,7 @@ namespace ariel
         //if cowboy is dead throw exception 
         if (!this->isAlive())
         {
-            throw std::runtime_error("dead attacker cant attack");
+            throw std::runtime_error("dead cowboy cant shoot");
         }
         // check if opponent is not the cowboy iteself
         if(this == opponent)
